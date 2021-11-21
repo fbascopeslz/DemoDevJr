@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DemoDevJr.Models.Curso>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.grado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paralelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nivel)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.grado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paralelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nivel)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cursoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cursoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cursoId })
+        </td>
+    </tr>
+}
+
+</table>

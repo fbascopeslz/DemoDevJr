@@ -1,0 +1,83 @@
+﻿@model DemoDevJr.Models.Inscripcion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Inscripcion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.alumno.rude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alumno.rude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.curso.cursoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.curso.cursoId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.colegioProcedencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.colegioProcedencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipoInscripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipoInscripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacion1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacion1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacion2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacion2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |    
+    <a href="@Url.Action("Index", "Inscripcions")" type="button" class="btn btn-secondary">Atras</a>
+</p>

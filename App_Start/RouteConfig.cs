@@ -18,6 +18,15 @@ namespace DemoDevJr
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "LandPage",
+                url: "landpage",
+                defaults: new { controller = "LandPage", action = "Index", id = UrlParameter.Optional }
+            );
+
+
+
         }
     }
 }

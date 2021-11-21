@@ -7,21 +7,37 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DemoDevJr.Models
 {
+    public enum Grado
+    {
+        Primero, Segundo, Tercero, Cuarto, Quinto, Sexto
+    }
+
+    public enum Paralelo
+    {
+        A, B, C, D, E
+    }
+
+    public enum Nivel
+    {
+        Primaria, Secundaria
+    }
+
     public class Curso
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public int cursoId { get; set; }
 
         [Required]
-        public string grado { get; set; }        
+        public Grado grado { get; set; }        
+
+        [Required]        
+        public Paralelo paralelo { get; set; }
 
         [Required]
-        [StringLength(1)]
-        public string paralelo { get; set; }
+        public Nivel nivel { get; set; }
 
-        [Required]
-        public string nivel { get; set; }
-        
+        public virtual ICollection<Inscripcion> inscripcion { get; set; }
+
     }
 }

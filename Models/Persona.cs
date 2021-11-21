@@ -7,12 +7,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DemoDevJr.Models
 {
-    public abstract class Persona
+    public enum Sexo
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        M, F
+    }
 
+    public abstract class Persona
+    {        
         [Required]
         public string nombres { get; set; }
 
@@ -23,8 +24,7 @@ namespace DemoDevJr.Models
         public string apellidoMaterno { get; set; }
 
         [Required]
-        [StringLength(1)]
-        public string sexo { get; set; }
+        public Sexo sexo { get; set; }
 
         public string lugarNacimiento { get; set; }
 

@@ -11,7 +11,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-        }
+        }                
 
         protected override void Seed(DemoDevJr.Context.EscuelaContexto context)
         {
@@ -20,43 +20,47 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
+
             Alumno alum1 = new Alumno { 
                 nombres = "Marcelo",
                 apellidoPaterno = "Tinelli",
                 apellidoMaterno = "Catacora",
-                sexo = "M",
+                sexo = Sexo.M,
                 lugarNacimiento = "Santa Cruz",
                 fechaNacimiento = new DateTime(1990, 5, 23),
                 ci = "1234567",
                 direccion = "Calle Los Tusequis",
                 zona = "Norte",
-                telefono = 6483920
+                telefono = 6483920,
+                rude = "597384792384"
             };
             Alumno alum2 = new Alumno
             {
                 nombres = "Pedro",
                 apellidoPaterno = "Garcia",
                 apellidoMaterno = "Cortez",
-                sexo = "M",
+                sexo = Sexo.M,
                 lugarNacimiento = "Tarija",
                 fechaNacimiento = new DateTime(1999, 3, 8),
                 ci = "7654321",
                 direccion = "Calle Las Petas",
                 zona = "Sur",
-                telefono = 75432680
+                telefono = 75432680,
+                rude = "958694383"
             };
             Alumno alum3 = new Alumno
             {
                 nombres = "Maria",
                 apellidoPaterno = "Choque",
                 apellidoMaterno = "Morales",
-                sexo = "F",
+                sexo = Sexo.F,
                 lugarNacimiento = "La Paz",
                 fechaNacimiento = new DateTime(1993, 11, 18),
                 ci = "1237890",
                 direccion = "Calle Murillo",
                 zona = "Este",
-                telefono = 7392816
+                telefono = 7392816,
+                rude = "1234567890"
             };
             context.Alumno.AddOrUpdate(
                 alum1,
@@ -69,7 +73,7 @@
                 nombres = "Julio",
                 apellidoPaterno = "Iglesias",
                 apellidoMaterno = "Rodriguez",
-                sexo = "M",
+                sexo = Sexo.M,
                 lugarNacimiento = "La Paz",
                 fechaNacimiento = new DateTime(1984, 5, 12),
                 ci = "1232985",
@@ -84,7 +88,7 @@
                 nombres = "Julia",
                 apellidoPaterno = "Gonzales",
                 apellidoMaterno = "Merida",
-                sexo = "F",
+                sexo = Sexo.F,
                 lugarNacimiento = "Cochabamba",
                 fechaNacimiento = new DateTime(1983, 3, 1),
                 ci = "1212480",
@@ -99,7 +103,7 @@
                 nombres = "Rosario",
                 apellidoPaterno = "Pacheco",
                 apellidoMaterno = "Trujillo",
-                sexo = "F",
+                sexo = Sexo.F,
                 lugarNacimiento = "Sucre",
                 fechaNacimiento = new DateTime(1978, 5, 14),
                 ci = "3252789",
@@ -117,21 +121,21 @@
 
             Curso cur1 = new Curso
             {
-                grado = "Primero",
-                paralelo = "A",
-                nivel = "Secundaria"                
+                grado = Grado.Primero,
+                paralelo = Paralelo.A,
+                nivel = Nivel.Secundaria
             };
             Curso cur2 = new Curso
             {
-                grado = "Segundo",
-                paralelo = "B",
-                nivel = "Primaria"
+                grado = Grado.Segundo,
+                paralelo = Paralelo.B,
+                nivel = Nivel.Primaria
             };
             Curso cur3 = new Curso
             {
-                grado = "Primero",
-                paralelo = "B",
-                nivel = "Secundaria"
+                grado = Grado.Primero,
+                paralelo = Paralelo.B,
+                nivel = Nivel.Secundaria
             };
             context.Curso.AddOrUpdate(
                 cur1,
@@ -141,25 +145,27 @@
 
             Inscripcion ins1 = new Inscripcion
             {
+                matricula = 111,
                 fecha = DateTime.Today,
                 colegioProcedencia = "Colegio Rio Nuevo",
-                tipoInscripcion = "Traspaso",
+                tipoInscripcion = TipoInscripcion.Traspaso,
                 observacion1 = "Falta la documentacion",
                 curso = cur1,
                 alumno = alum1
             };
             Inscripcion ins2 = new Inscripcion
             {
+                matricula = 222,
                 fecha = DateTime.Today,               
-                tipoInscripcion = "Repitente",
+                tipoInscripcion = TipoInscripcion.Repitente,
                 curso = cur1,
                 alumno = alum2
             };
             Inscripcion ins3 = new Inscripcion
             {
+                matricula = 333,
                 fecha = DateTime.Today,
-                tipoInscripcion = "Becado",
-                porcentajeBeca = 0.25,
+                tipoInscripcion = TipoInscripcion.Becado,               
                 curso = cur1,
                 alumno = alum3
             };            
