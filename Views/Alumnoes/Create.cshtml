@@ -27,8 +27,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.imagen, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.imagen, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.imagen, "", new { @class = "text-danger" })
+                <div class="file-upload-form">
+                    <input type="file" id="imagenAlumno" accept="image/*" class="form-control">
+                </div>
+                <div id="ocultarImagenAlumno" class="image-preview">
+                    <img id="imagenPreviewAlumno" class="preview" src="">
+                </div>
+
+                <input type="hidden" name="imagen" id="inputUrlImagenAlumno"/>
             </div>
         </div>
 
@@ -75,7 +81,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.fechaNacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.fechaNacimiento, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                <input name="fechaNacimiento" type="date" class="form-control">
                 @Html.ValidationMessageFor(model => model.fechaNacimiento, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -124,13 +130,71 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+
+<style>
+    .file-upload-form, .image-preview {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        padding: 20px;
+    }
+
+    img.preview {
+        width: 300px;
+        background-color: white;
+        border: 1px solid #DDD;
+        padding: 5px;
+    }
+</style>
+
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-   
 
-    <script>
-        $(function () {
-            $(".datepicker").datepicker();
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>        
+        $(function () {            
+            //$(".datepicker").datepicker();
+            //$(".datepicker").datepicker("option", "dateFormat", "dd-mm-yy");
+
+            $("#ocultarImagenAlumno").hide();
+
+            $("#imagenAlumno").change(function (e) {
+                if (e.target.files && e.target.files[0]) {
+                    const image = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onload = e => {
+                        //la imagen en base64 al img
+                        $("#imagenPreviewAlumno").attr("src", e.target.result);
+                        $("#ocultarImagenAlumno").show();
+
+                        var data = new FormData();
+                        data.append('upload_preset', 'ml_default');
+                        data.append('file', e.target.result);
+                        data.append('cloud_name', 'drejdx5z4');
+                        const config = {
+                            method: "POST",
+                            body: data
+                        };
+                        const imgurl = "https://api.cloudinary.com/v1_1/drejdx5z4/image/upload";                                                                  
+                        axios.post(imgurl, data)
+                            .then(function (response) {
+                                // handle success                                
+                                var res = response.data;
+                                console.log(res.secure_url);
+                                $('#inputUrlImagenAlumno').val(res.secure_url);
+                            })
+                            .catch(function (error) {
+                                // handle error
+                                console.log(error);
+                            })
+                            .then(function () {
+                                // always executed
+                            });
+
+                    };
+                    reader.readAsDataURL(image);
+                }
+            });
         });
     </script>
 

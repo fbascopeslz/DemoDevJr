@@ -11,107 +11,107 @@ using DemoDevJr.Models;
 
 namespace DemoDevJr.Controllers
 {
-    public class AlumnoesController : Controller
+    public class ContactoesController : Controller
     {
         private EscuelaContexto db = new EscuelaContexto();
 
-        // GET: Alumnoes
+        // GET: Contactoes
         public ActionResult Index()
         {
-            return View(db.Alumno.ToList());
+            return View(db.Contacto.ToList());
         }
 
-        // GET: Alumnoes/Details/5
+        // GET: Contactoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Alumno alumno = db.Alumno.Find(id);
-            if (alumno == null)
+            Contacto contacto = db.Contacto.Find(id);
+            if (contacto == null)
             {
                 return HttpNotFound();
             }
-            return View(alumno);
+            return View(contacto);
         }
 
-        // GET: Alumnoes/Create
+        // GET: Contactoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Alumnoes/Create
+        // POST: Contactoes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "alumnoId,rude,imagen,nombres,apellidoPaterno,apellidoMaterno,sexo,lugarNacimiento,fechaNacimiento,ci,direccion,zona,telefono")] Alumno alumno)
+        public ActionResult Create([Bind(Include = "id,nombre,email,telefono,asunto,mensaje")] Contacto contacto)
         {
             if (ModelState.IsValid)
-            {                
-                db.Alumno.Add(alumno);
+            {
+                db.Contacto.Add(contacto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(alumno);
+            return View(contacto);
         }
 
-        // GET: Alumnoes/Edit/5
+        // GET: Contactoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Alumno alumno = db.Alumno.Find(id);
-            if (alumno == null)
+            Contacto contacto = db.Contacto.Find(id);
+            if (contacto == null)
             {
                 return HttpNotFound();
             }
-            return View(alumno);
+            return View(contacto);
         }
 
-        // POST: Alumnoes/Edit/5
+        // POST: Contactoes/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "alumnoId,rude,imagen,nombres,apellidoPaterno,apellidoMaterno,sexo,lugarNacimiento,fechaNacimiento,ci,direccion,zona,telefono")] Alumno alumno)
+        public ActionResult Edit([Bind(Include = "id,nombre,email,telefono,asunto,mensaje")] Contacto contacto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(alumno).State = EntityState.Modified;
+                db.Entry(contacto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(alumno);
+            return View(contacto);
         }
 
-        // GET: Alumnoes/Delete/5
+        // GET: Contactoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Alumno alumno = db.Alumno.Find(id);
-            if (alumno == null)
+            Contacto contacto = db.Contacto.Find(id);
+            if (contacto == null)
             {
                 return HttpNotFound();
             }
-            return View(alumno);
+            return View(contacto);
         }
 
-        // POST: Alumnoes/Delete/5
+        // POST: Contactoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Alumno alumno = db.Alumno.Find(id);
-            db.Alumno.Remove(alumno);
+            Contacto contacto = db.Contacto.Find(id);
+            db.Contacto.Remove(contacto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

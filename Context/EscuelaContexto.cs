@@ -22,5 +22,7 @@ namespace DemoDevJr.Context
 
         public DbSet<Inscripcion> Inscripcion { get; set; }
 
+        public DbSet<Contacto> Contacto { get; set; }
+
     }
 }

@@ -16,13 +16,19 @@ namespace DemoDevJr
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "LandPage", action = "Index", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
+            /*routes.MapRoute(
                 name: "LandPage",
                 url: "landpage",
                 defaults: new { controller = "LandPage", action = "Index", id = UrlParameter.Optional }
+            );*/
+
+            routes.MapRoute(
+                name: "Administracion",
+                url: "administracion",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
 

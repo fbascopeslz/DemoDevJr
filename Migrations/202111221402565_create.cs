@@ -80,6 +80,18 @@ namespace DemoDevJr.Migrations
                     })
                 .PrimaryKey(t => t.cursoId);
             
+            CreateTable(
+                "dbo.Contactoes",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        nombre = c.String(),
+                        email = c.String(),
+                        asunto = c.String(),
+                        mensaje = c.String(),
+                    })
+                .PrimaryKey(t => t.id);
+            
         }
         
         public override void Down()
@@ -90,6 +102,7 @@ namespace DemoDevJr.Migrations
             DropIndex("dbo.Inscripcions", new[] { "cursoId" });
             DropIndex("dbo.Inscripcions", new[] { "alumnoId" });
             DropIndex("dbo.Apoderadoes", new[] { "alumnoId" });
+            DropTable("dbo.Contactoes");
             DropTable("dbo.Cursoes");
             DropTable("dbo.Inscripcions");
             DropTable("dbo.Apoderadoes");

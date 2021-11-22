@@ -5,96 +5,119 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 
+<style>
+    .file-upload-form, .image-preview {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        padding: 20px;
+    }   
+
+    img.previewTabla {
+        width: 150px;
+        background-color: white;
+        border: 1px solid #DDD;
+        padding: 5px;
+    }
+</style>
+
+
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p>    
+    <a href="@Url.Action("Create", "Alumnoes")" type="button" class="btn btn-primary">Agregar Nuevo Alumno</a>
 </p>
-<table class="table">
+<table class="table table-bordered table-striped table-sm">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.rude)
+            RUDE
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.imagen)
+            Imagen
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombres)
+            Nombres
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.apellidoPaterno)
+            Apellido Paterno
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.apellidoMaterno)
+            ApellidoMaterno
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.sexo)
+            Sexo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lugarNacimiento)
+            Lugar de Nacimiento
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fechaNacimiento)
+            Fecha de Nacimiento
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ci)
+            CI
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.direccion)
+            Direccion
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.zona)
+            Zona
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.telefono)
+            Telefono
         </th>
-        <th></th>
+        <th>
+            Acciones
+        </th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.rude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.imagen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombres)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellidoPaterno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellidoMaterno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sexo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lugarNacimiento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaNacimiento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ci)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.zona)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.alumnoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.alumnoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.alumnoId })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.rude)
+    </td>
+    <td>
+        <img src="@item.imagen" class="previewTabla" alt="item.rude" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombres)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.apellidoPaterno)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.apellidoMaterno)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.sexo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lugarNacimiento)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fechaNacimiento)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ci)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.direccion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.zona)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.telefono)
+    </td>
+    <td>
+        <a href="/Alumnoes/Edit/@item.alumnoId" type="button" class="btn btn-warning btn-sm">
+            <i class="fas fa-pen"></i>
+        </a>
+        <a href="/Alumnoes/Details/@item.alumnoId" type="button" class="btn btn-info btn-sm">
+            <i class="fas fa-eye"></i>
+        </a>
+        <a href="/Alumnoes/Delete/@item.alumnoId" type="button" class="btn btn-danger btn-sm">
+            <i class="fas fa-trash"></i>
+        </a>                  
+    </td>
+</tr>
 }
 
 </table>

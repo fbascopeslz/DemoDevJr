@@ -32,7 +32,8 @@
                 direccion = "Calle Los Tusequis",
                 zona = "Norte",
                 telefono = 6483920,
-                rude = "597384792384"
+                rude = "597384792384",
+                imagen = "https://image.freepik.com/foto-gratis/chico-guapo-atractivo-joven-parece-encantado-contento-asombrado_295783-533.jpg"
             };
             Alumno alum2 = new Alumno
             {
@@ -46,7 +47,8 @@
                 direccion = "Calle Las Petas",
                 zona = "Sur",
                 telefono = 75432680,
-                rude = "958694383"
+                rude = "958694383",
+                imagen = "https://image.freepik.com/foto-gratis/retrato-hombre-joven-camisa-cuadros-laptop_171337-16080.jpg"
             };
             Alumno alum3 = new Alumno
             {
@@ -60,7 +62,8 @@
                 direccion = "Calle Murillo",
                 zona = "Este",
                 telefono = 7392816,
-                rude = "1234567890"
+                rude = "1234567890",
+                imagen = "https://image.freepik.com/foto-gratis/chica-atractiva-joven-segura-que-sonrie-garantiza-calidad-recomienda-producto-felicita-eleccion-perfecta_176420-25467.jpg"
             };
             context.Alumno.AddOrUpdate(
                 alum1,

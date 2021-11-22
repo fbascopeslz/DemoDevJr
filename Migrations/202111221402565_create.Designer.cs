@@ -13,7 +13,7 @@ namespace DemoDevJr.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202111160611006_create"; }
+            get { return "202111221402565_create"; }
         }
         
         string IMigrationMetadata.Source
