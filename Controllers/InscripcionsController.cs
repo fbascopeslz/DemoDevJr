@@ -40,8 +40,22 @@ namespace DemoDevJr.Controllers
         // GET: Inscripcions/Create
         public ActionResult Create()
         {
-            ViewBag.alumnoId = new SelectList(db.Alumno, "alumnoId", "nombres");
-            ViewBag.cursoId = new SelectList(db.Curso, "cursoId", "grado");
+            var alumnos = db.Alumno.Select(s => new
+                                    {
+                                        alumnoId = s.alumnoId,
+                                        nombreCompleto = s.nombres + " " + s.apellidoPaterno + " "  + s.apellidoMaterno                                
+                                    })
+                                    .ToList();
+
+            var cursos = db.Curso.Select(s => new
+                                    {
+                                        cursoId = s.cursoId,
+                                        cursoCompleto = s.grado + " " + s.paralelo + " " + s.nivel
+                                    })
+                                    .ToList();
+
+            ViewBag.alumnoId = new SelectList(alumnos, "alumnoId", "nombreCompleto");
+            ViewBag.cursoId = new SelectList(cursos, "cursoId", "cursoCompleto");
             return View();
         }
 
@@ -76,8 +90,22 @@ namespace DemoDevJr.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.alumnoId = new SelectList(db.Alumno, "alumnoId", "nombres", inscripcion.alumnoId);
-            ViewBag.cursoId = new SelectList(db.Curso, "cursoId", "grado", inscripcion.cursoId);
+
+            var alumnos = db.Alumno.Select(s => new
+                                    {
+                                        alumnoId = s.alumnoId,
+                                        nombreCompleto = s.nombres + " " + s.apellidoPaterno + " " + s.apellidoMaterno
+                                    })
+                                    .ToList();
+            var cursos = db.Curso.Select(s => new
+                                    {
+                                        cursoId = s.cursoId,
+                                        cursoCompleto = s.grado + " " + s.paralelo + " " + s.nivel
+                                    })
+                                    .ToList();
+
+            ViewBag.alumnoId = new SelectList(alumnos, "alumnoId", "nombreCompleto", inscripcion.alumnoId);
+            ViewBag.cursoId = new SelectList(cursos, "cursoId", "cursoCompleto", inscripcion.cursoId);
             return View(inscripcion);
         }
 

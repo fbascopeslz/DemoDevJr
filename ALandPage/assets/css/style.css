@@ -685,9 +685,9 @@ section {
   font-size: 14px;
 }
 .about .video-box {
-  background: url("../img/about.jpg") center center no-repeat;
-  background-size: cover;
-  min-height: 500px;
+    background: url("https://st.depositphotos.com/2309453/5132/i/950/depositphotos_51326149-stock-photo-group-of-three-school-teachers.jpg") center center no-repeat;
+    background-size: cover;
+    min-height: 500px;
 }
 .about .play-btn {
   width: 94px;

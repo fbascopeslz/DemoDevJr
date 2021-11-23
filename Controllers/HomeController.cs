@@ -18,22 +18,29 @@ namespace DemoDevJr.Controllers
                 db.Inscripcion,
                 alumno => alumno.alumnoId,
                 inscripcion => inscripcion.alumno.alumnoId,
-                (alumno, inscripcion) => new AlumnoInscripcion
+                (alumno, inscripcion) => new { alumno, inscripcion }
+            )
+            .Join(
+                db.Curso,
+                combinedEntry => combinedEntry.inscripcion.cursoId,
+                curso => curso.cursoId,                
+                (combinedEntry, curso) => new AlumnoInscripcion
                 {
-                    id = alumno.alumnoId,
-                    nombres = alumno.nombres,
-                    apellidoPaterno = alumno.apellidoPaterno,
-                    apellidoMaterno = alumno.apellidoMaterno,
+                    id = combinedEntry.alumno.alumnoId,
+                    nombres = combinedEntry.alumno.nombres,
+                    apellidoPaterno = combinedEntry.alumno.apellidoPaterno,
+                    apellidoMaterno = combinedEntry.alumno.apellidoMaterno,
                     //sexo = alumno.sexo,
-                    lugarNacimiento = alumno.lugarNacimiento,
-                    fechaNacimiento = alumno.fechaNacimiento.ToString(),
-                    ci = alumno.ci,
-                    direccion = alumno.direccion,
-                    zona = alumno.zona,
-                    telefono = alumno.telefono,
-                    rude = alumno.rude,
-                    imagen = alumno.imagen,
-                    fechaInscripcion = inscripcion.fecha.ToString()
+                    lugarNacimiento = combinedEntry.alumno.lugarNacimiento,
+                    fechaNacimiento = combinedEntry.alumno.fechaNacimiento.ToString(),
+                    ci = combinedEntry.alumno.ci,
+                    direccion = combinedEntry.alumno.direccion,
+                    zona = combinedEntry.alumno.zona,
+                    telefono = combinedEntry.alumno.telefono,
+                    rude = combinedEntry.alumno.rude,
+                    imagen = combinedEntry.alumno.imagen,
+                    fechaInscripcion = combinedEntry.inscripcion.fecha.ToString(),
+                    curso = curso.grado + " " + curso.paralelo + " " + curso.nivel
                 }
             )
             .OrderByDescending(c => c.id)
@@ -50,7 +57,7 @@ namespace DemoDevJr.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nombre,email,telefono,asunto,mensaje")] Contacto contacto)
+        public ActionResult Create([Bind(Include = "id,nombre,email,asunto,mensaje")] Contacto contacto)
         {
             if (ModelState.IsValid)
             {

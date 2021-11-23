@@ -40,7 +40,13 @@ namespace DemoDevJr.Controllers
         // GET: Apoderadoes/Create
         public ActionResult Create()
         {
-            ViewBag.alumnoId = new SelectList(db.Alumno, "alumnoId", "nombres");
+            var alumnos = db.Alumno.Select(s => new
+                                    {
+                                        alumnoId = s.alumnoId,
+                                        nombreCompleto = s.nombres + " " + s.apellidoPaterno + " " + s.apellidoMaterno
+                                    })
+                                    .ToList();
+            ViewBag.alumnoId = new SelectList(alumnos, "alumnoId", "nombreCompleto");
             return View();
         }
 
@@ -74,7 +80,15 @@ namespace DemoDevJr.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.alumnoId = new SelectList(db.Alumno, "alumnoId", "nombres", apoderado.alumnoId);
+
+            var alumnos = db.Alumno.Select(s => new
+                                    {
+                                        alumnoId = s.alumnoId,
+                                        nombreCompleto = s.nombres + " " + s.apellidoPaterno + " " + s.apellidoMaterno
+                                    })
+                                    .ToList();
+            ViewBag.alumnoId = new SelectList(alumnos, "alumnoId", "nombreCompleto", apoderado.alumnoId);
+            //ViewBag.alumnoId = new SelectList(db.Alumno, "alumnoId", "nombres", apoderado.alumnoId);
             return View(apoderado);
         }
 

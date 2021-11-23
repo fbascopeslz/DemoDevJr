@@ -109,7 +109,7 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.alumnoId }) |
-    @Html.ActionLink("Back to List", "Index")
+<p>        
+    @Html.ActionLink("Edit", "Edit", new { id = Model.alumnoId }, new { @class = "btn btn-success" }) |    
+    <a href="@Url.Action("Index", "Alumnoes")" type="button" class="btn btn-secondary">Atras</a>
 </p>

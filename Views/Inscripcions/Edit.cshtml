@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
 }
 
 <h2>Edit</h2>
@@ -28,8 +28,8 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10">                
+                <input name="fecha" type="date" class="form-control" value="@Model.fecha">
                 @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
             </div>
         </div>

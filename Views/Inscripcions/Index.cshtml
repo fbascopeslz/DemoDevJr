@@ -10,42 +10,47 @@
 <p>    
     <a href="@Url.Action("Create", "Inscripcions")" type="button" class="btn btn-primary">Agregar Nueva Inscripcion</a>
 </p>
-<table class="table">
+<table class="table table-bordered table-striped table-sm">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.alumno.nombres)
+            @*@Html.DisplayNameFor(model => model.alumno.nombres)*@
+            Alumno
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.curso.grado)
+            @*@Html.DisplayNameFor(model => model.curso.grado)*@
+            Curso
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.matricula)
+            @*@Html.DisplayNameFor(model => model.matricula)*@
+            Matricula
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fecha)
+            Fecha Inscripcion
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.colegioProcedencia)
+            ColegioProcedencia
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tipoInscripcion)
+            TipoInscripcion
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.observacion1)
+            Observacion1
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.observacion2)
+            Observacion2
         </th>
-        <th></th>
+        <th>
+            Acciones
+        </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.alumno.nombres)
+            @item.alumno.nombres  @item.alumno.apellidoPaterno @item.alumno.apellidoMaterno
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.curso.grado)
+        <td>            
+            @item.curso.grado @item.curso.paralelo @item.curso.nivel
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.matricula)
@@ -65,10 +70,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.observacion2)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        <td>            
+            <a href="/Inscripcions/Edit/@item.id" type="button" class="btn btn-warning btn-sm">
+                <i class="fas fa-pen"></i>
+            </a>
+            <a href="/Inscripcions/Details/@item.id" type="button" class="btn btn-info btn-sm">
+                <i class="fas fa-eye"></i>
+            </a>
+            <a href="/Inscripcions/Delete/@item.id" type="button" class="btn btn-danger btn-sm">
+                <i class="fas fa-trash"></i>
+            </a>
         </td>
     </tr>
 }

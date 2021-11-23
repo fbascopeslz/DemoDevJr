@@ -61,5 +61,8 @@ namespace DemoDevJr.Models
         public string imagen { get; set; }
 
         public string fechaInscripcion { get; set; }
+
+        public string curso { get; set; }
+
     }
 }

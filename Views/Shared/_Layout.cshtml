@@ -31,6 +31,14 @@
     <!-- Template Main CSS File -->
     <link href="~/ALandPage/assets/css/style.css" rel="stylesheet">
 
+    <style>
+        .about .video-box {
+            background: url("https://st.depositphotos.com/2309453/5132/i/950/depositphotos_51326149-stock-photo-group-of-three-school-teachers.jpg") center center no-repeat;
+            background-size: cover;
+            min-height: 500px;
+        }
+    </style>
+
 
     <!-- =======================================================
     * Template Name: Medilab - v4.6.0
@@ -45,8 +53,8 @@
     <div id="topbar" class="d-flex align-items-center fixed-top">
         <div class="container d-flex justify-content-between">
             <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
-                <i class="bi bi-phone"></i> +1 5589 55488 55
+                <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">colegiolasalle@gmail.com</a>
+                <i class="bi bi-phone"></i> +3 5589 55488 55
             </div>
             <div class="d-none d-lg-flex social-links align-items-center">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -70,7 +78,7 @@
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li><a class="nav-link scrollto" href="#about">Acerca de</a></li>
                     <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
-                    <li><a class="nav-link scrollto" href="#departments">Departamentos</a></li>
+                    <li><a class="nav-link scrollto" href="#departments">Materias</a></li>
                     <li><a class="nav-link scrollto" href="#doctors">Docentes</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
 
@@ -211,6 +219,7 @@
                                                 <p class="card-text"><b>Zona: </b> @item.zona</p>
                                                 <p class="card-text"><b>Telefono: </b> @item.telefono</p>
                                                 <p class="card-text"><b>RUDE: </b> @item.rude</p>
+                                                <p class="card-text"><b>Curso: </b> @item.curso</p>
                                             </div>
                                         </div>
                                         <p class="card-text m-3"><small class="text-muted"><b>Fecha de Inscripcion: </b>@item.fechaInscripcion</small></p>
@@ -278,7 +287,7 @@
                         <div class="count-box">
                             <i class="fas fa-user-md"></i>
                             <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Doctors</p>
+                            <p>Docentes</p>
                         </div>
                     </div>
 
@@ -286,7 +295,7 @@
                         <div class="count-box">
                             <i class="far fa-hospital"></i>
                             <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Departments</p>
+                            <p>Materias</p>
                         </div>
                     </div>
 
@@ -294,7 +303,7 @@
                         <div class="count-box">
                             <i class="fas fa-flask"></i>
                             <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Research Labs</p>
+                            <p>Aulas</p>
                         </div>
                     </div>
 
@@ -302,7 +311,7 @@
                         <div class="count-box">
                             <i class="fas fa-award"></i>
                             <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Awards</p>
+                            <p>Premios</p>
                         </div>
                     </div>
 
@@ -315,7 +324,7 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Services</h2>
+                    <h2>Servicios</h2>
                     <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                 </div>
 
@@ -377,33 +386,33 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Make an Appointment</h2>
+                    <h2>Haga una cita</h2>
                     <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                 </div>
 
                 <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                             <div class="validate"></div>
                         </div>
                         <div class="col-md-4 form-group mt-3 mt-md-0">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Tu Email" data-rule="email" data-msg="Please enter a valid email">
                             <div class="validate"></div>
                         </div>
                         <div class="col-md-4 form-group mt-3 mt-md-0">
-                            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Tu Telefono" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                             <div class="validate"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 form-group mt-3">
-                            <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                            <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Fecha de la cita" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                             <div class="validate"></div>
                         </div>
                         <div class="col-md-4 form-group mt-3">
                             <select name="department" id="department" class="form-select">
-                                <option value="">Select Department</option>
+                                <option value="">Select una Materia</option>
                                 <option value="Department 1">Department 1</option>
                                 <option value="Department 2">Department 2</option>
                                 <option value="Department 3">Department 3</option>
@@ -412,7 +421,7 @@
                         </div>
                         <div class="col-md-4 form-group mt-3">
                             <select name="doctor" id="doctor" class="form-select">
-                                <option value="">Select Doctor</option>
+                                <option value="">Select un Docente</option>
                                 <option value="Doctor 1">Doctor 1</option>
                                 <option value="Doctor 2">Doctor 2</option>
                                 <option value="Doctor 3">Doctor 3</option>
@@ -422,7 +431,7 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+                        <textarea class="form-control" name="message" rows="5" placeholder="Mensaje (Opcional)"></textarea>
                         <div class="validate"></div>
                     </div>
                     <div class="mb-3">
@@ -430,7 +439,7 @@
                         <div class="error-message"></div>
                         <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
                     </div>
-                    <div class="text-center"><button type="submit">Make an Appointment</button></div>
+                    <div class="text-center"><button type="submit">Solicitar un cita</button></div>
                 </form>
 
             </div>
@@ -440,7 +449,7 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Departments</h2>
+                    <h2>Materias</h2>
                     <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                 </div>
 
@@ -448,19 +457,19 @@
                     <div class="col-lg-3">
                         <ul class="nav nav-tabs flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Cardiology</a>
+                                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Matematicas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Neurology</a>
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Ciencias Sociales</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Hepatology</a>
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Biologia</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Pediatrics</a>
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Literatura</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Eye Care</a>
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Musica</a>
                             </li>
                         </ul>
                     </div>
@@ -469,12 +478,12 @@
                             <div class="tab-pane active show" id="tab-1">
                                 <div class="row">
                                     <div class="col-lg-8 details order-2 order-lg-1">
-                                        <h3>Cardiology</h3>
+                                        <h3>Matematicas</h3>
                                         <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
                                         <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
                                     </div>
                                     <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="~/ALandPage/assets/img/departments-1.jpg" alt="" class="img-fluid">
+                                        <img src="https://ichef.bbci.co.uk/news/800/cpsprodpb/164EE/production/_109347319_gettyimages-611195980.jpg" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -537,7 +546,7 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Doctors</h2>
+                    <h2>Docentes</h2>
                     <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                 </div>
 
@@ -545,10 +554,10 @@
 
                     <div class="col-lg-6">
                         <div class="member d-flex align-items-start">
-                            <div class="pic"><img src="~/ALandPage/assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="https://conceptodefinicion.de/wp-content/uploads/2018/10/Profesor-2.jpg" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Walter White</h4>
-                                <span>Chief Medical Officer</span>
+                                <span>Matematicas</span>
                                 <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
@@ -562,10 +571,10 @@
 
                     <div class="col-lg-6 mt-4 mt-lg-0">
                         <div class="member d-flex align-items-start">
-                            <div class="pic"><img src="~/ALandPage/assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="https://static.diariofemenino.com/media/13502/carta-gracias-profesor.jpg" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Sarah Jhonson</h4>
-                                <span>Anesthesiologist</span>
+                                <span>Biologia</span>
                                 <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
@@ -579,10 +588,10 @@
 
                     <div class="col-lg-6 mt-4">
                         <div class="member d-flex align-items-start">
-                            <div class="pic"><img src="~/ALandPage/assets/img/doctors/doctors-3.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="https://www.aprendemas.com/co/blog/images/2021/10/profesor_mal_tips.jpg" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>William Anderson</h4>
-                                <span>Cardiology</span>
+                                <span>Ciencias Sociales</span>
                                 <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
@@ -596,10 +605,10 @@
 
                     <div class="col-lg-6 mt-4">
                         <div class="member d-flex align-items-start">
-                            <div class="pic"><img src="~/ALandPage/assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="data:image/jpeg;base64,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" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Amanda Jepson</h4>
-                                <span>Neurosurgeon</span>
+                                <span>Musica</span>
                                 <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
@@ -620,7 +629,9 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Frequently Asked Questions</h2>
+                    <h2>
+                        Preguntas frecuentes
+                    </h2>
                     <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                 </div>
 
@@ -769,7 +780,7 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Gallery</h2>
+                    <h2>Galeria</h2>
                     <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                 </div>
             </div>
@@ -779,64 +790,64 @@
 
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
-                            <a href="~/ALandPage/assets/img/gallery/gallery-1.jpg" class="galelry-lightbox">
-                                <img src="~/ALandPage/assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+                            <a href="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" class="galelry-lightbox">
+                                <img src="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
-                            <a href="~/ALandPage/assets/img/gallery/gallery-2.jpg" class="galelry-lightbox">
-                                <img src="~/ALandPage/assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+                            <a href="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" class="galelry-lightbox">
+                                <img src="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
-                            <a href="~/ALandPage/assets/img/gallery/gallery-3.jpg" class="galelry-lightbox">
-                                <img src="~/ALandPage/assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+                            <a href="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" class="galelry-lightbox">
+                                <img src="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
-                            <a href="~/ALandPage/assets/img/gallery/gallery-4.jpg" class="galelry-lightbox">
-                                <img src="~/ALandPage/assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+                            <a href="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" class="galelry-lightbox">
+                                <img src="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
-                            <a href="~/ALandPage/assets/img/gallery/gallery-5.jpg" class="galelry-lightbox">
-                                <img src="~/ALandPage/assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+                            <a href="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" class="galelry-lightbox">
+                                <img src="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
-                            <a href="~/ALandPage/assets/img/gallery/gallery-6.jpg" class="galelry-lightbox">
-                                <img src="~/ALandPage/assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+                            <a href="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" class="galelry-lightbox">
+                                <img src="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
-                            <a href="~/ALandPage/assets/img/gallery/gallery-7.jpg" class="galelry-lightbox">
-                                <img src="~/ALandPage/assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+                            <a href="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" class="galelry-lightbox">
+                                <img src="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
-                            <a href="~/ALandPage/assets/img/gallery/gallery-8.jpg" class="galelry-lightbox">
-                                <img src="~/ALandPage/assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+                            <a href="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" class="galelry-lightbox">
+                                <img src="https://static.eldeber.com.bo//Files/Original/sites/eldeber/img/2018/04/09/7dfnjckf.jpg" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
@@ -850,7 +861,7 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Contact</h2>
+                    <h2>Contacto</h2>
                     <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                 </div>
             </div>
@@ -893,7 +904,7 @@
 
                         @model DemoDevJr.Models.Contacto
 
-                        <form action="/LandPage/Create" method="post">
+                        <form action="/Home/Create" method="post">
                             @Html.AntiForgeryToken()
                             <div class="row">
                                 <div class="col-md-6 form-group">
@@ -944,13 +955,13 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-md-6 footer-contact">
-                        <h3>Medilab</h3>
+                        <h3>Colegio La Salle</h3>
                         <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            Av. Ovidio Barbery Justiniano (radial 26),<br>
+                            Santa Cruz de la Sierra<br>
+                            Bolivia <br><br>
+                            <strong>Telefono:</strong> +3 5589 55488 55<br>
+                            <strong>Email:</strong> colegiolasalle@gmail.com<br>
                         </p>
                     </div>
 
