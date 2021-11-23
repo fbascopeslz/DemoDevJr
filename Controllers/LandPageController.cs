@@ -10,42 +10,12 @@ namespace DemoDevJr.Controllers
 {  
     public class LandPageController : Controller
     {
-        private EscuelaContexto db = new EscuelaContexto();
-
-        public IEnumerable<DemoDevJr.Models.AlumnoInscripcion> datos()
-        {
-            IEnumerable<DemoDevJr.Models.AlumnoInscripcion> datos = db.Alumno.Join(
-                db.Inscripcion,
-                alumno => alumno.alumnoId,
-                inscripcion => inscripcion.alumno.alumnoId,
-                (alumno, inscripcion) => new AlumnoInscripcion
-                {
-                    id = alumno.alumnoId,
-                    nombres = alumno.nombres,
-                    apellidoPaterno = alumno.apellidoPaterno,
-                    apellidoMaterno = alumno.apellidoMaterno,
-                    //sexo = alumno.sexo,
-                    lugarNacimiento = alumno.lugarNacimiento,
-                    fechaNacimiento = alumno.fechaNacimiento.ToString(),
-                    ci = alumno.ci,
-                    direccion = alumno.direccion,
-                    zona = alumno.zona,
-                    telefono = alumno.telefono,
-                    rude = alumno.rude,
-                    imagen = alumno.imagen,
-                    fechaInscripcion = inscripcion.fecha.ToString()
-                }
-            )
-            .OrderByDescending(c => c.id)
-            .Take(5)
-            .ToList();
-            return datos;
-        }
+        
 
         // GET: LandPage
         public ActionResult Index()
         {            
-            ViewBag.datos = this.datos();
+            
             //ViewBag.swContacto = 0;
 
             return View();
@@ -79,25 +49,7 @@ namespace DemoDevJr.Controllers
                 return View();
             }
         }*/
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nombre,email,telefono,asunto,mensaje")] Contacto contacto)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Contacto.Add(contacto);
-                db.SaveChanges();
-                ViewBag.swContacto = 1;
-                ViewBag.datos = this.datos();
-                //return RedirectToAction("Index");
-                return View("Index");                
-            }
-            ViewBag.swContacto = 0;
-            ViewBag.datos = this.datos();
-            return View("Index");
-            //return View(contacto);
-            //return RedirectToAction("Index");            
-        }
+        
 
         // GET: LandPage/Edit/5
         public ActionResult Edit(int id)

@@ -127,6 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\EscuelaContexto.cs" />
+    <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\AlumnoesController.cs" />
     <Compile Include="Controllers\ApoderadoesController.cs" />
     <Compile Include="Controllers\ContactoesController.cs" />
@@ -256,6 +257,9 @@
     <Content Include="Views\Contactoes\Edit.cshtml" />
     <Content Include="Views\Contactoes\Index.cshtml" />
     <Content Include="cloudinary\README.md" />
+    <Content Include="Views\LandPage\LandPage.cshtml" />
+    <Content Include="Views\Administracion\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdm.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -487,12 +491,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\hola.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Alumnoes\Create.cshtml" />
     <Content Include="Views\Alumnoes\Delete.cshtml" />
@@ -517,7 +519,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\LandPage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
