@@ -48,7 +48,12 @@ namespace DemoDevJr.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "alumnoId,rude,imagen,nombres,apellidoPaterno,apellidoMaterno,sexo,lugarNacimiento,fechaNacimiento,ci,direccion,zona,telefono")] Alumno alumno)
-        {
+        {           
+            if (Utils.Utils.validarNumeroCelular(alumno.telefono.ToString()))
+            {
+                return View(alumno);
+            }
+
             if (ModelState.IsValid)
             {                
                 db.Alumno.Add(alumno);
