@@ -13,5 +13,10 @@ namespace DemoDevJr.Utils
         {
             return Validaciones.Validaciones.validarCelular(celular);
         }
+
+        public static bool validarCedulaIdentidad(string ci)
+        {
+            return Validaciones.Validaciones.validarCI(ci);
+        }
     }
 }

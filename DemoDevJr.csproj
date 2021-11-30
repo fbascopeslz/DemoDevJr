@@ -108,7 +108,8 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Validaciones">
+    <Reference Include="Validaciones, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Validaciones\bin\Debug\Validaciones.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">

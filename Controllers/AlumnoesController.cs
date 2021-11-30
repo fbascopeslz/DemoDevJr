@@ -49,7 +49,11 @@ namespace DemoDevJr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "alumnoId,rude,imagen,nombres,apellidoPaterno,apellidoMaterno,sexo,lugarNacimiento,fechaNacimiento,ci,direccion,zona,telefono")] Alumno alumno)
         {           
-            if (Utils.Utils.validarNumeroCelular(alumno.telefono.ToString()))
+            if (!Utils.Utils.validarNumeroCelular(alumno.telefono.ToString()))
+            {
+                return View(alumno);
+            }
+            if (!Utils.Utils.validarCedulaIdentidad(alumno.ci))
             {
                 return View(alumno);
             }
